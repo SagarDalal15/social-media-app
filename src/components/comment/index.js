@@ -7,6 +7,7 @@ export default function Comment({ username, caption }) {
         <span style={{ fontWeight: "600", marginRight: "4px" }}>
           {username}
         </span>
+
         {caption}
       </p>
     </div>
