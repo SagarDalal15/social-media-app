@@ -1,0 +1,90 @@
+.loginpage {
+  min-height: 100vh;
+  height: 100vh;
+  background-color: rgb(230, 0, 0);
+}
+
+.loginpage-header {
+  height: 70px;
+  background-color: #de5346;
+  background-image: linear-gradient(180deg, #ee756a, #de5346);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.loginpage-heading {
+  display: flex;
+  margin-left: 40px;
+  font-size: 30px;
+  color: white;
+}
+
+.loginpage-inner {
+  background-color: rgb(243, 243, 243);
+  display: flex;
+  justify-content: space-around;
+  height: 90%;
+}
+
+.loginpage-title {
+  font-size: 50px;
+  height: 400px;
+  width: 400px;
+  border-radius: 18px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loginpage-card {
+  border-radius: 18px;
+  box-shadow: inset 0 0 1px 1px hsla(0, 0%, 100%, 0.9),
+    0 20px 27px 0 rgba(0, 0, 0, 0.05) !important;
+  background-color: rgb(255, 255, 255);
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.loginpage-card-text {
+  margin-top: 90px;
+  font-size: 40px;
+}
+
+.loginpage-signinbtn {
+  margin-top: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.loginpage-footer {
+  background-color: rgb(70, 70, 70);
+  height: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1000px) {
+  .loginpage-inner {
+    justify-content: none;
+  }
+  .loginpage-title {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .loginpage-card {
+    justify-content: none;
+    align-self: auto;
+    margin-top: 35px;
+    width: 80vw;
+    height: 68vh;
+  }
+  .loginpage-card-text {
+    font-size: 7vw;
+  }
+}

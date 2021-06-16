@@ -1,0 +1,37 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background-color: white;
+  cursor: pointer;
+}
+.navbar.dark {
+  color: white;
+  background-color: #333333;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-darkmode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logged-in {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navbar__img {
+  height: 35px;
+  margin-bottom: 0px;
+  align-self: center;
+  border-radius: 8px;
+}
