@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #f3f2ef;
-  margin-bottom: 40px;
+  padding-bottom: 20px;
 }
 .feed.dark {
   background-color: #212121;
