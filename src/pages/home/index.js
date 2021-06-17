@@ -15,18 +15,6 @@ export default function Home() {
       <Navbar />
       <CreatePost />
       <Feed />
-      <div
-        style={{
-          backgroundColor: "#333333",
-          color: "white",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "40px",
-        }}
-      >
-        Developed by Sagar Dalal
-      </div>
     </div>
   );
 }
