@@ -16,7 +16,11 @@ ReactDOM.render(
             path={process.env.PUBLIC_URL + "/"}
             component={LoginPage}
           ></Route>
-          <Route exact path="/home" component={App}></Route>
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + "/home"}
+            component={App}
+          ></Route>
         </Switch>
       </BrowserRouter>
     </UserContextProvider>
