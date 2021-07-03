@@ -4,6 +4,8 @@
 
 https://reactsocialapptutorial.web.app
 
+<img width="1440" alt="Screenshot 2021-07-03 at 7 44 29 PM" src="https://user-images.githubusercontent.com/74422938/124357308-78ecdb80-dc38-11eb-8630-2a2335ffb623.png">
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
