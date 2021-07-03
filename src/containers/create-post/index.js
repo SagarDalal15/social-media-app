@@ -69,7 +69,9 @@ export default function CreatePost() {
                 caption: caption,
                 photoUrl: imageUrl,
                 username: user.email.replace("@gmail.com", ""),
-                profileUrl: user.photoURL,
+                profileUrl: user.photoURL
+                  ? user.photoURL
+                  : "https://firebasestorage.googleapis.com/v0/b/reactsocialapptutorial.appspot.com/o/images%2Fblank-profile.webp?alt=media&token=d749fb07-d371-4927-b3d7-ac16abd31c9e",
               });
             });
           setCaption("");

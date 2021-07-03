@@ -1,15 +1,19 @@
 import React, { useContext } from "react";
+
 import "./style.css";
 import { CreatePost, Navbar } from "../../containers";
 import Feed from "../../containers/feed";
 import { DarkModeContext } from "../../contexts/darkmode";
+import RequireAuth from "../../RequireAuth";
 
-export default function Home() {
+function Home() {
   const [DarkMode, setDarkMode] = useContext(DarkModeContext).DarkMode;
   var homeCss = "home";
+
   if (DarkMode) {
     homeCss = "home dark";
   }
+
   return (
     <div className={homeCss}>
       <Navbar />
@@ -18,3 +22,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default RequireAuth(Home);

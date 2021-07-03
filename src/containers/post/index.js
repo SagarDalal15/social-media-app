@@ -71,12 +71,10 @@ export default function Post({
           <img className="post__profilePic" src={profileUrl} />
           <p style={{ marginLeft: "8px" }}>{username}</p>
         </div>
-        {displayDelete ? (
+        {displayDelete && (
           <button onClick={deletePost} className={post__delete}>
             Delete
           </button>
-        ) : (
-          <></>
         )}
       </div>
 
@@ -93,14 +91,13 @@ export default function Post({
         </p>
       </div>
 
-      {comments ? (
+      {comments &&
         comments.map((comment) => (
-          <Comment username={comment.username} caption={comment.comment} />
-        ))
-      ) : (
-        <div></div>
-      )}
-      {user ? <CommentInput comments={comments} id={id} /> : <div />}
+          <div key={comment.username}>
+            <Comment username={comment.username} caption={comment.comment} />
+          </div>
+        ))}
+      {user && <CommentInput comments={comments} id={id} />}
     </div>
   );
 }

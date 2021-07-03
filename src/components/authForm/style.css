@@ -1,0 +1,11 @@
+.authform-textfield.dark {
+  color: white;
+}
+
+.authform-signin-button.dark {
+  color: white;
+}
+
+.authform-signup-button.dark {
+  color: rgb(68, 149, 255);
+}

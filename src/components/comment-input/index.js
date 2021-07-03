@@ -19,7 +19,7 @@ export default function CommentInput({ comments, id }) {
   }
 
   const addComment = () => {
-    if (comment != "") {
+    if (comment !== "") {
       //add comment to the post info
       commentArray.push({
         comment: comment,

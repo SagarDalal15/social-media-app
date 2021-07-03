@@ -1,47 +1,40 @@
 import React, { useContext } from "react";
+import { Card } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+
 import { SignInBtn } from "../../components";
 import { UserContext } from "../../contexts/user";
-import { useHistory } from "react-router-dom";
 import "./style.css";
-import { Card } from "react-bootstrap";
-import appicon from "../../res/appicon.svg";
-import appicon2 from "../../res/appicon2.svg";
+import Navbar from "../../containers/navbar";
+import AuthForm from "../../components/authForm";
+import { DarkModeContext } from "../../contexts/darkmode";
 
 export function LoginPage() {
   const [user, setUser] = useContext(UserContext).user;
   const history = useHistory();
-  if (user) {
-    history.push("./home");
+
+  const [DarkMode, setDarkMode] = useContext(DarkModeContext).DarkMode;
+  let loginpageInnerCSS = "loginpage-inner";
+  let loginpageTitleCSS = "loginpage-title";
+  let loginpageCardCSS = "loginpage-card";
+
+  if (DarkMode) {
+    loginpageInnerCSS = "loginpage-inner dark";
+    loginpageTitleCSS = "loginpage-title dark";
+    loginpageCardCSS = "loginpage-card dark";
   }
 
   return (
     <div className="loginpage">
-      <div className="loginpage-header">
-        <div className="loginpage-heading">
-          <img
-            style={{
-              height: "40px",
-              width: "40px",
-              borderRadius: "12px",
-              marginRight: "20px",
-            }}
-            src={appicon}
-          ></img>
-          Say it Social
+      <Navbar />
+      <div className={loginpageInnerCSS}>
+        <div className={loginpageTitleCSS}>
+          Share your stories here! <br />
+          Sign up Now!
         </div>
-      </div>
-      <div className="loginpage-inner">
-        <div className="loginpage-title">
-          <div className="loginpage-icon">
-            <Card.Img
-              style={{ width: "200px", marginTop: "40px" }}
-              src={appicon2}
-            ></Card.Img>
-          </div>{" "}
-          Say it Social
-        </div>
-        <Card className="loginpage-card">
-          <Card.Body>
+        <Card className={loginpageCardCSS}>
+          <Card.Body className="loginpage-card-body">
+            <AuthForm />
             <Card.Text className="loginpage-card-text">
               Sign in with Google:
             </Card.Text>
@@ -51,6 +44,7 @@ export function LoginPage() {
           </Card.Body>
         </Card>
       </div>
+
       <div className="loginpage-footer">Developed by Sagar Dalal</div>
     </div>
   );

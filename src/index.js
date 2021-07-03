@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { LoginPage } from "./pages/LoginPage";
@@ -6,17 +6,24 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import App from "./App";
 import { UserContextProvider } from "./contexts/user";
 import { DarkModeContextProvider } from "./contexts/darkmode";
+import { NotificationContextProvider } from "./contexts/notification-context";
+import Layout from "./components/layout/Layout";
+
 ReactDOM.render(
-  <DarkModeContextProvider>
-    <UserContextProvider>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={LoginPage}></Route>
-          <Route exact path="/home" component={App}></Route>
-        </Switch>
-      </BrowserRouter>
-    </UserContextProvider>
-  </DarkModeContextProvider>,
+  <NotificationContextProvider>
+    <DarkModeContextProvider>
+      <UserContextProvider>
+        <BrowserRouter>
+          <Layout>
+            <Switch>
+              <Route exact path="/" component={LoginPage}></Route>
+              <Route exact path="/home" component={App}></Route>
+            </Switch>
+          </Layout>
+        </BrowserRouter>
+      </UserContextProvider>
+    </DarkModeContextProvider>
+  </NotificationContextProvider>,
   document.getElementById("root")
 );
 

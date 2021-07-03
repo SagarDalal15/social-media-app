@@ -14,7 +14,6 @@ export default function Feed() {
 
   useEffect(() => {
     db.collection("posts").onSnapshot((snapshot) => {
-      console.log(snapshot.docs);
       setPosts(snapshot.docs.map((doc) => ({ id: doc.id, post: doc.data() })));
     });
   }, []);
@@ -23,15 +22,17 @@ export default function Feed() {
     <div className={feedCss}>
       {posts.map(({ id, post }) => {
         return (
-          <Post
-            key={id}
-            id={id}
-            profileUrl={post.profileUrl}
-            username={post.username}
-            photoUrl={post.photoUrl}
-            caption={post.caption}
-            comments={post.comments}
-          />
+          <div style={{ padding: "6px 0px" }}>
+            <Post
+              key={id}
+              id={id}
+              profileUrl={post.profileUrl}
+              username={post.username}
+              photoUrl={post.photoUrl}
+              caption={post.caption}
+              comments={post.comments}
+            />
+          </div>
         );
       })}
     </div>
