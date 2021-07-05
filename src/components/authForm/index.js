@@ -1,15 +1,12 @@
 import React, { useState, useContext } from "react";
 import {
-  DialogContent,
+  Divider,
   Button,
   TextField,
   withStyles,
-  makeStyles,
   DialogActions,
-  createMuiTheme,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-import { green } from "@material-ui/core/colors";
 
 import NotificationContext from "../../contexts/notification-context";
 import { signInWithEmail, signUpWithEmail } from "../../services/auth";
@@ -17,45 +14,26 @@ import { UserContext } from "../../contexts/user";
 import { DarkModeContext } from "../../contexts/darkmode";
 import "./style.css";
 
+let rootColor = "#C3C4C4";
+let otherColors = "rgb(68, 127, 255)";
+
 let CssTextField = withStyles({
   root: {
     "& label.Mui-focused": {
-      color: "#4051B5",
+      color: otherColors,
     },
     "& .MuiInput-underline:after": {
-      borderBottomColor: "#4051B5",
+      borderBottomColor: otherColors,
     },
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        borderColor: "#C3C4C4",
+        borderColor: rootColor,
       },
       "&:hover fieldset": {
-        borderColor: "#4051B5",
+        borderColor: otherColors,
       },
       "&.Mui-focused fieldset": {
-        borderColor: "#4051B5",
-      },
-    },
-  },
-})(TextField);
-
-let DarkCssTextField = withStyles({
-  root: {
-    "& label.Mui-focused": {
-      color: "white",
-    },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "white",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "white",
-      },
-      "&:hover fieldset": {
-        borderColor: "white",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "white",
+        borderColor: otherColors,
       },
     },
   },
@@ -77,6 +55,8 @@ export default function AuthForm() {
     authformTextfieldCSS = "authform-textfield dark";
     authformSignInButtonCSS = "authform-signin-button dark";
     authformSignUpButtonCSS = "authform-signup-button dark";
+    rootColor = "white";
+    otherColors = "white";
   }
 
   const signUpHandler = async (event) => {
@@ -157,90 +137,44 @@ export default function AuthForm() {
 
   return (
     <div>
-      <DialogContent dividers>
-        {DarkMode ? (
-          <div
+      <Divider
+        style={{
+          marginBottom: "45px",
+          backgroundColor: DarkMode && "white",
+        }}
+      />
+      <div className="authform-textfields-wrapper">
+        <div className="authform-textfields">
+          <CssTextField
+            inputProps={{ className: authformTextfieldCSS }}
+            InputLabelProps={{ className: authformTextfieldCSS }}
+            autoComplete="off"
+            variant="outlined"
+            label="Email"
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <CssTextField
+            InputProps={{ className: authformTextfieldCSS }}
+            InputLabelProps={{ className: authformTextfieldCSS }}
+            variant="outlined"
+            label="Password"
+            type="password"
+            value={password}
             style={{
-              display: "flex",
-              flexDirection: "column",
-              maxWidth: "400px",
-              minWidth: "300px",
+              marginTop: "20px",
             }}
-          >
-            <DarkCssTextField
-              id="email-textfield"
-              inputProps={{ className: authformTextfieldCSS }}
-              InputLabelProps={{ className: authformTextfieldCSS }}
-              name="email"
-              variant="outlined"
-              autoComplete="off"
-              label="Email"
-              type="text"
-              style={{
-                marginTop: "20px",
-              }}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <DarkCssTextField
-              id="password-textfield"
-              InputProps={{ className: authformTextfieldCSS }}
-              InputLabelProps={{ className: authformTextfieldCSS }}
-              name="password"
-              variant="outlined"
-              label="Password"
-              type="password"
-              value={password}
-              style={{
-                marginTop: "20px",
-                marginBottom: "10px",
-              }}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-        ) : (
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              maxWidth: "400px",
-              minWidth: "300px",
-            }}
-          >
-            <CssTextField
-              id="email-textfield"
-              inputProps={{ className: authformTextfieldCSS }}
-              InputLabelProps={{ className: authformTextfieldCSS }}
-              autoComplete="off"
-              name="email"
-              variant="outlined"
-              label="Email"
-              type="text"
-              style={{
-                marginTop: "20px",
-              }}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <CssTextField
-              id="password-textfield"
-              InputProps={{ className: authformTextfieldCSS }}
-              InputLabelProps={{ className: authformTextfieldCSS }}
-              name="password"
-              variant="outlined"
-              label="Password"
-              type="password"
-              value={password}
-              style={{
-                marginTop: "20px",
-                marginBottom: "10px",
-              }}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-        )}
-      </DialogContent>
-      <DialogActions>
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+      </div>
+      <Divider
+        style={{ marginTop: "25px", backgroundColor: DarkMode && "white" }}
+      />
+
+      <div style={{ float: "right", marginTop: "10px" }}>
         <Button
           className={authformSignInButtonCSS}
           autoFocus
@@ -258,7 +192,7 @@ export default function AuthForm() {
         >
           SignUp
         </Button>
-      </DialogActions>
+      </div>
     </div>
   );
 }

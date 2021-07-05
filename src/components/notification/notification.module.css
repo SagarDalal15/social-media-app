@@ -30,3 +30,9 @@
 .error {
   background-color: #e65035;
 }
+
+@media (max-width: 700px) {
+  .notification h2 {
+    font-size: 4vw;
+  }
+}

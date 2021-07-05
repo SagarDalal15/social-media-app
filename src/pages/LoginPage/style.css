@@ -7,7 +7,7 @@
   background-color: rgb(243, 243, 243);
   display: flex;
   justify-content: space-around;
-  height: 100%;
+  height: 90%;
 }
 
 .loginpage-inner.dark {
@@ -47,8 +47,7 @@
 .loginpage-card.dark {
   background-color: #333333;
   color: white;
-  box-shadow: inset 0 0 1px 1px hsla(0, 0%, 13%, 0.9),
-    0 20px 27px 0 rgba(0, 0, 0, 0.05) !important;
+  box-shadow: inset 0 0 1px 1px #333333, 0 20px 27px 0 rgba(0, 0, 0, 0.05) !important;
 }
 
 .loginpage-card-body {
@@ -91,11 +90,16 @@
   }
 }
 @media (max-width: 700px) {
+  .loginpage-inner {
+    height: 90%;
+  }
+
   .loginpage-card {
     justify-content: none;
     align-self: auto;
-    margin-top: 35px;
-    width: 80vw;
-    height: 68vh;
+    margin-top: 0px;
+    width: 100vw;
+    border-radius: 0px;
+    height: 100%;
   }
 }
