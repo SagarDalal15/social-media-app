@@ -17,7 +17,7 @@ export default function Navbar() {
     let logMeOut = await logout();
     if (logMeOut) {
       localStorage.removeItem("user");
-      history.push("/");
+      history.push(process.env.PUBLIC_URL + "/");
     }
   };
 
