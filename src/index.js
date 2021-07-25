@@ -8,6 +8,7 @@ import { UserContextProvider } from "./contexts/user";
 import { DarkModeContextProvider } from "./contexts/darkmode";
 import { NotificationContextProvider } from "./contexts/notification-context";
 import Layout from "./components/layout/Layout";
+import GithubLink from "./components/github-link";
 
 ReactDOM.render(
   <NotificationContextProvider>
@@ -23,6 +24,7 @@ ReactDOM.render(
               ></Route>
               <Route exact path="/home" component={App}></Route>
             </Switch>
+            <GithubLink />
           </Layout>
         </BrowserRouter>
       </UserContextProvider>

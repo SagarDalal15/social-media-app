@@ -44,8 +44,6 @@ export function LoginPage() {
           </Card.Body>
         </Card>
       </div>
-
-      <div className="loginpage-footer">Developed by Sagar Dalal</div>
     </div>
   );
 }
